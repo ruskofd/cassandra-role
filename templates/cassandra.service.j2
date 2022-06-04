@@ -1,0 +1,22 @@
+[Unit]
+Description=Apache Cassandra 4.0x
+After=network.target
+
+[Service]
+Type=forking
+User={{ cassandra_user }}
+Group={{ cassandra_group }}
+RuntimeDirectory=cassandra
+PIDFile=/run/cassandra/cassandra.pid
+EnvironmentFile=-{{ cassandra_env_file }}
+ExecStart=/usr/sbin/cassandra -p /run/cassandra/cassandra.pid
+LimitNOFILE=100000
+LimitMEMLOCK=infinity
+LimitNPROC=32768
+LimitAS=infinity
+Restart=always
+TimeoutStopSec=180
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
