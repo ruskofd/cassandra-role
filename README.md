@@ -14,6 +14,9 @@ This Ansible role is designed to deploy and manage Apache Cassandra database ins
 
 **Supported Platforms**
 
+  - Red Hat Enterprise Linux 8.x
+  - Fedora 36
+
 **References**
 
   - Apache Cassandra : https://cassandra.apache.org/
