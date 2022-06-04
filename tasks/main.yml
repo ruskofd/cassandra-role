@@ -15,7 +15,7 @@
 
 - name: Install Cassandra
   ansible.builtin.package:
-    name: "{{ cassandra_package }}"
+    name: "{{ cassandra_packages }}"
     state: present
 
 - name: Manage Cassandra configuration
