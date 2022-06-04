@@ -1,0 +1,23 @@
+---
+- name: Ensure Cassandra user group exists
+  ansible.builtin.group:
+    name: "{{ cassandra_group }}"
+    state: present
+
+- name: Ensure Cassandra user exists
+  ansible.builtin.user:
+    name: "{{ cassandra_user }}"
+    group: "{{ cassandra_group }}"
+    state: present
+
+- name: Ensure Java runtime is installed (OpenJDK)
+  ansible.builtin.package:
+    name: "{{ cassandra_java_package }}"
+    state: present
+  when: cassandra_java_pkg_install
+
+- name: Ensure Python3 runtime is installed (for cqlsh)
+  ansible.builtin.package:
+    name: "{{ cassandra_python_package }}"
+    state: present
+  when: cassandra_python_pkg_install

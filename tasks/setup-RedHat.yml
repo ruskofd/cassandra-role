@@ -1,0 +1,9 @@
+---
+- name: Ensure Cassandra RPM repository is configured
+  ansible.builtin.yum_repository:
+    name: cassandra
+    description: "Apache Cassandra 4.0x"
+    baseurl: "https://downloads.apache.org/cassandra/redhat/40x/"
+    gpgcheck: yes
+    repo_gpgcheck: yes
+    gpgkey: https://downloads.apache.org/cassandra/KEYS

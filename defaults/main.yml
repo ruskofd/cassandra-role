@@ -1,0 +1,78 @@
+---
+#------------------------------------------------------------------------------
+# GENERAL
+#------------------------------------------------------------------------------
+cassandra_version: "4.0.4"
+
+cassandra_user: cassandra
+cassandra_group: cassandra
+
+cassandra_java_pkg_install: true
+cassandra_python_pkg_install: true
+
+#------------------------------------------------------------------------------
+# CONFIGURATIONS
+#------------------------------------------------------------------------------
+
+# - General -
+cassandra_cluster_name: "Test Cluster"
+cassandra_num_tokens: 16
+
+# - Authentication and authorization
+cassandra_authenticator_backend: AllowAllAuthenticator
+cassandra_autorizer_backend: AllowAllAuthorizer
+cassandra_network_authorizer: AllowAllNetworkAuthorizer
+
+# - Directories -
+cassandra_data_dirs: [ "/var/lib/cassandra" ]
+cassandra_commitlog_dir: "/var/lib/cassandra/commitlog"
+cassandra_saved_caches_dir: "/var/lib/cassandra/saved_cachedata"
+cassandra_hints_dir: "/var/lib/cassandra/hints"
+cassandra_log_dir: "/var/log/cassandra"
+
+# - Failure policies -
+cassandra_disk_failure_policy: stop
+cassandra_commit_failure_policy: stop
+
+# - Commit Log -
+cassandra_commitlog_sync: periodic
+cassandra_commitlog_sync_period: 10000
+
+# - Cluster -
+cassandra_seed_nodes: [ "127.0.0.1:7000" ]
+
+# - Storage -
+cassandra_concurrent_reads: 32
+cassandra_concurrent_writes: 32
+cassandra_disk_optimization_strategy: ssd
+
+# - Network -
+cassandra_storage_port: 7000
+cassandra_ssl_storage_port: 7001
+cassandra_listen_address: "localhost"
+cassandra_native_transport_enabled: true
+cassandra_native_transport_port: 9042
+cassandra_rpc_address: "localhost"
+
+cassandra_incremental_backups_enabled: false
+
+# - Requests timeout -
+cassandra_read_request_timeout: 5000
+cassandra_range_request_timeout: 10000
+cassandra_write_request_timeout: 2000
+cassandra_counter_write_request_timeout: 5000
+cassandra_cas_contention_timeout: 1000
+cassandra_truncate_request_timeout: 60000
+cassandra_misc_request_timeout: 10000
+cassandra_slow_query_log_timeout: 500
+cassandra_cross_node_timeout_enabled: true
+
+# - Endpoint Snitch -
+cassandra_endpoint_snitch: SimpleSnitch
+
+# - Inter-node compression -
+cassandra_internode_compression: dc
+
+# - RackDC properties -
+cassandra_rackdc_dc_name: dc1
+cassandra_rackdc_rack_name: rack1
