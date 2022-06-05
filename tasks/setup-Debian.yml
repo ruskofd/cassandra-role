@@ -1,0 +1,12 @@
+---
+- name: Ensure Cassandra DEB repository GPG key exists
+  ansible.builtin.apt_key:
+    url: "https://www.apache.org/dist/cassandra/KEYS"
+    state: present
+
+- name: Ensure Cassandra DEB repository is configured
+  ansible.builtin.apt_repository:
+    repo: "deb http://www.apache.org/dist/cassandra/debian 40x main"
+    filename: "cassandra"
+    state: present
+    update_cache: yes

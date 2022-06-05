@@ -1,0 +1,9 @@
+---
+cassandra_env_file: "/etc/default/cassandra"
+cassandra_java_pkg_version: "8"
+cassandra_java_pkg_name: "openjdk-{{ cassandra_java_pkg_version }}-jdk-headless"
+cassandra_python_pkg_name: "python3"
+cassandra_packages: 
+  - "cassandra={{ cassandra_version }}"
+  - "cassandra-tools={{ cassandra_version }}"
+cassandra_config_dir: "/etc/cassandra"
