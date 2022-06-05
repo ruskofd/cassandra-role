@@ -48,7 +48,6 @@ cassandra_disk_optimization_strategy: ssd
 
 # - Network -
 cassandra_storage_port: 7000
-cassandra_ssl_storage_port: 7001
 cassandra_listen_address: "localhost"
 cassandra_native_transport_enabled: true
 cassandra_native_transport_port: 9042
