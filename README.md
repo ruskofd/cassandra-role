@@ -32,3 +32,34 @@ The role variables are available [HERE](docs/variables.md)
 ### Examples
 
 You can find some configurations examples [HERE](docs/examples.md)
+
+### Install and use this role
+
+* Install the role using the command-line :
+
+  ```shell
+  $ ansible-galaxy collection install git+https://github.com/ruskofd/cassandra-role.git
+  ```
+
+* Install the collection in your projects using a `requirements.yml` file and `ansible-galaxy` command-line :
+
+  ```YAML
+  $ cat requirements.yml
+  ---
+  roles:
+    - name: cassandra
+      src: https://github.com/ruskofd/cassandra-role.git
+      scm: git
+      version: '1.0.0'
+
+  $ ansible-galaxy install-f -r requirements.yml
+  ```
+
+* Once the collection is installed, you can use the roles in your playbooks :
+
+  ```yaml
+  - name: Install Cassandra server
+    hosts: cassandra
+    roles:
+      - role: cassandra
+  ```
