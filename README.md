@@ -27,10 +27,8 @@ This Ansible role is designed to deploy and manage Apache Cassandra database ins
 
 ### Role variables
 
-The role variables are available here :
-
-### Role tags
-
-This role has some tags that you can use for some operations without replaying the entire role :
+The role variables are available [HERE](docs/variables.md)
 
 ### Examples
+
+You can find some configurations examples [HERE](docs/examples.md)
