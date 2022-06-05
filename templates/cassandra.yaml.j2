@@ -686,7 +686,7 @@ listen_address: {{ cassandra_listen_address }}
 
 # Whether to start the native transport server.
 # The address on which the native transport is bound is defined by rpc_address.
-start_native_transport: {{ cassandra_native_transport_enabled }}
+start_native_transport: {{ cassandra_native_transport_enabled | lower }}
 # port for the CQL native transport to listen for clients on
 # For security reasons, you should not expose this port to the internet.  Firewall it if needed.
 native_transport_port: {{ cassandra_native_transport_port }}
@@ -980,7 +980,7 @@ slow_query_log_timeout_in_ms: {{ cassandra_slow_query_log_timeout }}
 #
 # Warning: It is generally assumed that users have setup NTP on their clusters, and that clocks are modestly in sync, 
 # since this is a requirement for general correctness of last write wins.
-cross_node_timeout: {{ cassandra_cross_node_timeout_enabled }}
+cross_node_timeout: {{ cassandra_cross_node_timeout_enabled | lower }}
 
 # Set keep-alive period for streaming
 # This node will send a keep-alive message periodically with this period.
