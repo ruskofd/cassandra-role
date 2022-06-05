@@ -6,7 +6,7 @@
     owner: "{{ cassandra_user }}"
     group: "{{ cassandra_group }}"
     mode: "{{ item.mode | default('0755') }}"
-  loop:
+  with_items:
     - "{{ cassandra_data_dirs }}"
     - "{{ cassandra_log_dir }}"
     - "{{ cassandra_commitlog_dir }}"
@@ -17,7 +17,6 @@
   ansible.builtin.template:
     src: env.j2
     dest: "{{ cassandra_env_file }}"
-    state: present
     owner: root
     group: root
     mode: '0644'
@@ -26,7 +25,6 @@
   ansible.builtin.template:
     src: cassandra.yaml.j2
     dest: "{{ cassandra_config_dir }}/cassandra.yaml"
-    state: present
     owner: root
     group: root
     mode: '0644'
@@ -35,7 +33,6 @@
   ansible.builtin.template:
     src: cassandra-rackdc.properties.j2
     dest: "{{ cassandra_config_dir }}/cassandra-rackdc.properties"
-    state: present 
     owner: root
     group: root
     mode: '0644'
